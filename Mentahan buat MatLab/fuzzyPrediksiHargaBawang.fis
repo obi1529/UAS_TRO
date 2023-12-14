@@ -1,0 +1,73 @@
+[System]
+Name='fuzzyPrediksiHargaBawang'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Produksi'
+Range=[1 170]
+NumMFs=3
+MF1='Sedikit':'trapmf',[1 1 30 75]
+MF2='Cukup Banyak':'trapmf',[30 75 100 130]
+MF3='Banyak':'trapmf',[100 130 170 170]
+
+[Input2]
+Name='Kebutuhan'
+Range=[1 117]
+NumMFs=3
+MF1='Sedikit':'trapmf',[1 1 25 50]
+MF2='Cukup Banyak':'trapmf',[25 50 70 97]
+MF3='Banyak':'trapmf',[70 97 117 117]
+
+[Input3]
+Name='Cuaca'
+Range=[0 10]
+NumMFs=3
+MF1='Buruk':'trapmf',[0 0 2 4]
+MF2='Normal':'trapmf',[2 4 6 8]
+MF3='Baik':'trapmf',[6 8 10 10]
+
+[Output1]
+Name='Harga'
+Range=[5000 60000]
+NumMFs=3
+MF1='Turun':'trapmf',[5000 5000 15000 25000]
+MF2='Stabil':'trapmf',[15000 25000 33000 50000]
+MF3='Naik':'trapmf',[33000 50000 60000 60000]
+
+[Rules]
+1 1 1, 3 (1) : 1
+1 1 2, 3 (1) : 1
+1 1 3, 3 (1) : 1
+1 2 1, 3 (1) : 1
+1 2 2, 3 (1) : 1
+1 2 3, 3 (1) : 1
+1 3 1, 3 (1) : 1
+1 3 2, 3 (1) : 1
+1 3 3, 3 (1) : 1
+2 1 1, 2 (1) : 1
+2 1 2, 2 (1) : 1
+2 1 3, 1 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 1 (1) : 1
+2 3 1, 1 (1) : 1
+2 3 2, 1 (1) : 1
+2 3 3, 1 (1) : 1
+3 1 1, 2 (1) : 1
+3 1 2, 1 (1) : 1
+3 1 3, 1 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 1 (1) : 1
+3 2 3, 1 (1) : 1
+3 3 1, 2 (1) : 1
+3 3 2, 1 (1) : 1
+3 3 3, 1 (1) : 1
